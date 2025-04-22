@@ -5,5 +5,3 @@ Regras universais nivel tabela:
 #CONTROLE_RETENCAO
 #MONITORA_SLA
 #VALIDA_DIAS_FALTANTES
-
-

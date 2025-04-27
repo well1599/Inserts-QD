@@ -5,3 +5,5 @@ Regras universais nivel tabela:
 #CONTROLE_RETENCAO
 #MONITORA_SLA
 #VALIDA_DIAS_FALTANTES
+
+OBS: Como foi feio em apenas um notbook no Databricks, os 3 arquivos devem ser ultilizadas no mesmo notebook por conta da tabela temporaria e melhor organização.

@@ -57,16 +57,15 @@ when lower(tabelas) like 'gstbr_quod' then 'BUREAU'
 WHEN lower(tables) like 'h_stbr_dfs_%' then 'FINANCES'
 WHEN lower(tabela) like 'h_stbr_dri_cra%' then 'RISCOS'
 WHEN lower(tabela) like 's_stbr_ofout%' then 'OPEN FINANCE'
-whren lower(tabela) like 's_stbr_ofout%' then 'OPEN FINANCE'
+WHEN lower(tabela) like 's_stbr_ofout%' then 'OPEN FINANCE'
 end as DOMINIO
-
 from prd.bdq.oxygen_datasets b
 left join prd.bdq.jobs c
 on lower(c.tabela) = lower(concat(b.systentiane, ".",b.dataset_name))
 LEFT join prd.bdq.estrutura_colecao_dados_mkp_stakeholders_dataset a
 on b.dataset_id = a.datasetid
 where b.datasetPublishStatus 'Published'
-and b.axonStatus = 'Active' and b.lifecycle = 'Approved
+and b.axonStatus = 'Active' and b.lifecycle = 'Approved'
 and a.fl_categoria_colecao <> 'Source Systems'
 and lower(b.systemName) not like 'b_%'
 and lower(b.systemName) not like 'ds_%'
@@ -77,15 +76,13 @@ and lower(b.systemName) not like 'dbap%'
 and lower(b.systemName) not like 'dbaproc%'
 -- and lower(b.systemName) not like 's_ods%' ---- TIRANDO AS TABELAS DO ODS
 -- and upper(b.systemName) not like 'S_STBR_DIN%' ---- TIRANDO AS TABELAS DO INVESTIMENTO
-
 AND upper(b.systemName) not like 'S_STBR_DIG%'
 
 --AND upper(b.systemName) like '%360%'
 --AND B.dataset_refNumber in ('DS-15685', 'DS-19171', 'DS-19172', 'DS-19173', 'DS-32277', 'DS-34868', 'DS-34869', 'DS-34878', 'DS-35981', 'DS-35984', 'DS-35906", 'DS-35987', 'DS-35988')
 --and DOMAIN like '%360%' ---- Filtrando tabelas por dominios
-OU FILTRAR PELO NOME DA TABELA/DATASET ----->>>>
---AND lower(concat(b.systemName,".",b.dataset_name)) IN ('s_stbr_ofout.bcb_metricas_dadc_analitica', "s_stbr_ofout.bcb_metricas_dadc_sintetica",
-"s_stor_ofout.bcb_metricas_dadc_sintetica_interno")
+OU FILTRAR PELO NOME DA TABELA.DATASET ----->>>>
+--AND lower(concat(b.systemName,".",b.dataset_name)) IN ('s_stbr_ofout.bcb_metricas_dadc_analitica', "s_stbr_ofout.bcb_metricas_dadc_sintetica","s_stor_ofout.bcb_metricas_dadc_sintetica_interno")
 )
 group by tabelas, DOMINIO
 order by tabelas)

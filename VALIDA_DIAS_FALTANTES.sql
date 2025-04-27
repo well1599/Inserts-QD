@@ -1,6 +1,7 @@
 -- GERA OS INSERTS DA REGRA VALIDA_DIAS_FALTANTES
 
-select distinct UUID() AS job_id, 'CONTROLE_RETENCAO' REGRA_NOME,
+select distinct UUID() AS job_id,
+'VALIDA_DIAS_FALTANTES' REGRA_NOME,
 'DD' TIPO_INTERVALO,
 '1' INTERVALO,
 c.tabelas TABELA,
@@ -12,7 +13,7 @@ case when lower(periodicidade) = 'semanal' then 'SS,1,1,1'
   when lower(periodicidade) = 'quinsenal' then 'DD,15,1,1'
   when lower(periodicidade) = 'semestral' then 'MM,6,1,1'
   ELSE 'erro'
-  end VALORES_PARAMETROS,
+end VALORES_PARAMETROS,
 string(current_date()) as dat_ref,
 '0' as status_tabela,
 'Hight|100-100' ORIGEM,

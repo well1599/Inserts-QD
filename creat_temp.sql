@@ -1,4 +1,4 @@
--- CRIANDO A TABELA TEMPORARIA DAS REGRAS
+-- CRIANDO A TABELA TEMPORARIA DAS REGRAS PARA SABER QUAL TABELA PRECISA DE REGRA PARA A CRIAÇÃO DOS INSERTS
 
 CREATE OR REPLACE TEMP VIEN regraswell as (
 select tabelas, sum(ch_con_retn) ch_con_retn, sum(ch_mon_sla) ch_mon_sla, sum(ch_dias_fal) ch_dias_fal,

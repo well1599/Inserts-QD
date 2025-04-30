@@ -10,7 +10,7 @@ string(current_date()) as dat_ref,
 '0' as status_tabela,
 'Medium|100-100' ORIGEM,
 c. domínio as DOMINION,
----SUBIR DIRETO NA JOBS
+---CASO FOR SUBIR DIRETO NA JOBS
 
 concat("INSERT INTO bdq.jobs VALUES", "(","'", job_id, "'",",","'", regra_nome, "'",",","'", TIPO_INTERVALO,"'",",","'", INTERVALO,"'",",","'", TABELA,"'",",","'",
 COLUNA,"'",",","'", VALORES_PARAMETROS, "'",",","'", dat_ref, "'",",", "'", status_tabela,"'",",","'", ORIGEM,"'",",","'", DOMINIO, "'",")",';') as inserts

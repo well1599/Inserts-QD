@@ -20,10 +20,4 @@ COLUNA,"'",",","'", VALORES_PARAMETROS, "'",",","'", dat_ref, "'",",", "'", stat
   --job_id, '\"',',', '\"', regra_nome, '\"',', ','\"', TIPO_INTERVALO, '\"',',','\"', INTERVALO, "',',','\"', TABELA, '\"',', ', '\"', COLUNA, '\"',',',"\"",
   --VALORES_PARAMETROS, '\"',',','\"', dat_ref, '\"',',','\"', status_tabela, '\"',',','"\"", ORIGEM, '\"',',','\"", DOMINIO, "\")'",',', '"not done"', ');') as inserts
 
-from bdq.oxygen_datasets a
-left join regraswell c
-on concat(upper((a.systemName)),'.', UPPER((a.dataset_name))) = upper(c.tabelas)
-where a.collectionnames <> ''
-and upper(a. PeriododeRetenção) not in (0,'', 'NAO INFORMADO', 'NÃO INFORMADO')
-and c.ch_con_retn = 0
-limit 1
+

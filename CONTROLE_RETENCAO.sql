@@ -1,5 +1,4 @@
 -- GERA OS INSERTS DA REGRA CONTROLE_RETENÇÃO
-
 select distinct UUID() AS job_id, 'CONTROLE_RETENCAO' REGRA_NOME,
 'DD' TIPO_INTERVALO,
 '1' INTERVALO,
@@ -9,9 +8,9 @@ c.tabelas TABELA,
 string(current_date()) as dat_ref,
 '0' as status_tabela,
 'Medium|100-100' ORIGEM,
-c. domínio as DOMINION,
+c. domínio as DOMINION,]
+  
 ---CASO FOR SUBIR DIRETO NA JOBS
-
 concat("INSERT INTO bdq.jobs VALUES", "(","'", job_id, "'",",","'", regra_nome, "'",",","'", TIPO_INTERVALO,"'",",","'", INTERVALO,"'",",","'", TABELA,"'",",","'",
 COLUNA,"'",",","'", VALORES_PARAMETROS, "'",",","'", dat_ref, "'",",", "'", status_tabela,"'",",","'", ORIGEM,"'",",","'", DOMINIO, "'",")",';') as inserts
 
